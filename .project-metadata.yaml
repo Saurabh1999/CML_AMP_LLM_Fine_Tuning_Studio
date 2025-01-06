@@ -41,7 +41,7 @@ tasks:
 
   - type: run_session
     name: Install Dependencies
-    script: bin/install-dependencies.py
+    script: fine-tuning-studio/bin/install-dependencies.py
     short_summary: Install Dependencies
     kernel: python3
     cpu: 4
@@ -61,7 +61,7 @@ tasks:
     name: Accel_Finetuning_Base_Job
     short_summary: Create Template Job for creating finetuning tasks
     entity_label: accel_fine_tune_job_template
-    script: ft/scripts/accel_fine_tune_base_script.py
+    script: fine-tuning-studio/ft/scripts/accel_fine_tune_base_script.py
     arguments: None
     long_summary: Create Template Job for creating accelerator-based finetuning tasks. This job is used as the template for creating and launching fine-tuning tasks in the application.
     cpu: 2
@@ -76,7 +76,7 @@ tasks:
     name: Mlflow_Evaluation_Base_Job
     short_summary: Create Template Job for creating mlflow evaluation tasks
     entity_label: mlflow_evaluation_job_template
-    script: ft/scripts/mlflow_evaluation_base_script.py
+    script: fine-tuning-studio/ft/scripts/mlflow_evaluation_base_script.py
     arguments: None
     long_summary: Create Template Job for creating mlflow evaluation tasks. This job is used as the template for creating and launching mlflow evaluation tasks in the application.
     cpu: 2
@@ -87,7 +87,7 @@ tasks:
 
   - type: run_session
     name: Initialize Project Defaults
-    script: bin/initialize-project-defaults.py
+    script: fine-tuning-studio/bin/initialize-project-defaults.py
     short_summary: Initialize Project Defaults
     long_summary: Initialize default datasets, prompts, models, adapters, etc., shipped with this version of the Studio.
     kernel: python3
@@ -117,7 +117,7 @@ tasks:
       - request:
           prompt: "You are an event ticketing customer LLM chatbot responsible for generating a one-word, snake_case action, based on a customer input. Please provide the action below based on the input from the customer.\\n\\n### CUSTOMER: I want to cancel my concert tickets\\n### ACTION:"
         response: ""
-    target_file_path: ft/scripts/cml_model_predict_script.py
+    target_file_path: fine-tuning-studio/ft/scripts/cml_model_predict_script.py
     target_function_name: api_wrapper
 
   - type: deploy_model
@@ -135,7 +135,7 @@ tasks:
     name: Sample-Ticketing-Agent-Application
     short_summary: Start Sample Ticketing Agent Application
     subdomain: sample-ticketing-agent
-    script: examples/ticketing-agent-app/ticketing-agent-launch.py
+    script: fine-tuning-studio/examples/ticketing-agent-app/ticketing-agent-launch.py
     long_summary: This application launcher launches the sample ticketing streamlit application.
     cpu: 2
     memory: 8
@@ -146,7 +146,7 @@ tasks:
     name: Fine Tuning Studio
     short_summary: Start Fine Tuning Studio
     subdomain: fine-tuning-studio
-    script: bin/run-app.py
+    script: fine-tuning-studio/bin/run-app.py
     long_summary: This application requires an available GPU to run the LLM model and LoRA adapters.
     cpu: 2
     memory: 8

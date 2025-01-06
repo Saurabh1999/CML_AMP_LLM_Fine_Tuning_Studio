@@ -1,3 +1,5 @@
+import os
+os.chdir('fine-tuning-studio')
 from ft.eval.mlflow_pyfunc import MLFlowTransformers
 import torch
 import os

@@ -1,3 +1,5 @@
+import os
+os.chdir('fine-tuning-studio')
 from accelerate.utils.constants import ELASTIC_LOG_LINE_PREFIX_TEMPLATE_PYTORCH_VERSION
 from accelerate.utils import (
     PrepareForLaunch,

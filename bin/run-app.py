@@ -1,3 +1,5 @@
+import os
+os.chdir('fine-tuning-studio')
 import subprocess
 import os 
 

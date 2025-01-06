@@ -1,3 +1,5 @@
+import os
+os.chdir('fine-tuning-studio')
 from ft.db.utils import import_defaults
 from ft.db.dao import FineTuningStudioDao, get_sqlite_db_location, delete_database
 import os
